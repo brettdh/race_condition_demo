@@ -10,3 +10,12 @@ To run, type:
     $ ./tally <number of threads>
     
 Quit with Ctrl-C.  You will get a failure rate for the number of iterations run.
+
+The Makefile also produces the assembly.  On my 2008 Macbook Pro, using Clang++ 4.2, 
+this x86 is produced for the increment line:
+
+	movl	__ZL5tally(%rip), %eax
+	addl	$1, %eax
+	movl	%eax, __ZL5tally(%rip)
+
+Your results may vary.
